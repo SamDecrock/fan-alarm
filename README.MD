@@ -7,8 +7,7 @@ In this example, I'm using a Quigg Tower Fan. So if you happen to have the same 
 
 My setup:
 
-![My setup](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup.jpg)
-
+[![My setup](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup-thumb.jpg)](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup.jpg)
 
 ## Install Hardware
 
