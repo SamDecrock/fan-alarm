@@ -74,7 +74,7 @@ or with (raw mode):
 
 Make sure copy the generate .conf file to `/etc/lirc/lircd.conf.d/`.
 
-If you have a Quigg Tower Fan too, just copy the supplier quigg.lirc.conf:
+If you have a Quigg Tower Fan too, just copy the supplied quigg.lirc.conf:
 
 	sudo cp quigg.lirc.conf /etc/lirc/lircd.conf.d/
 
@@ -92,11 +92,18 @@ Or more generic
 
 ### The Node.js app
 
-Clone this repo into a folder, I choose to create an `/apps` folder:
+Store this app into a folder, I choose to create an `/apps` folder:
 
 	sudo mkdir /apps
 	sudo chmod -R 777 /apps
 	cd /apps
+
+Make sure you have git installed:
+
+	sudo apt-get install git -y
+
+Clone this repo:
+
 	git clone https://github.com/SamDecrock/fan-alarm.git
 
 Go into this folder and install its dependencies:
@@ -106,9 +113,21 @@ Go into this folder and install its dependencies:
 
 Modify app.js so that the fan starts at the time you want.
 
+Make sure you have your timezone set on your Pi with:
+
+	sudo raspi-config
+	> Localization Options
+	> Change Timezone
+
 Test it by running
 
 	node app.js
+
+You should see something like this:
+
+	Connected to LIRC.
+	Starting cron job. Will wake you up at 2:30 AM
+
 
 To run this node.js app in the background, creat a service:
 
@@ -120,7 +139,7 @@ With the following content:
 	Type=simple
 	User=root
 
-	ExecStart=/usr/bin/node /apps/fan-alarm/app/app.js
+	ExecStart=/usr/bin/node /apps/fan-alarm/app.js
 
 	Restart=always
 	RestartSec=10
