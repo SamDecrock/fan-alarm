@@ -3,8 +3,22 @@ const lirc = require('lirc-client')({
 });
 const cron = require('node-cron');
 
+var isAlarmSet = false;
+
+
 lirc.on('connect', () => {
 	console.log('Connected to LIRC.');
+
+	setAlarm();
+});
+
+lirc.on('receive', function (remote, button, repeat) {
+    console.log('button ' + button + ' on remote ' + remote + ' was pressed!');
+});
+
+
+function setAlarm() {
+	if(isAlarmSet) return console.log('Alarm already set');
 
 	console.log('Starting cron job. Will wake you up at 2:30 AM');
 
@@ -17,8 +31,6 @@ lirc.on('connect', () => {
 			console.log("ONOFF sent");
 		});
 	});
-});
 
-lirc.on('receive', function (remote, button, repeat) {
-    console.log('button ' + button + ' on remote ' + remote + ' was pressed!');
-});
+	isAlarmSet = true;
+}

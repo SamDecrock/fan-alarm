@@ -9,20 +9,20 @@ My setup:
 
 [![My setup](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup-thumb.jpg)](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup.jpg)
 
-## Install Hardware
+## Install the hardware
 
 Attach a powerfull IR LED (eg LIR053) to pin 22 of your Pi. You can also a attach an IR Receiver (TSOP38238) to pin 23 if you still need to capture/record the IR signals.
 You can follow this tutorial to wire the components: https://www.hackster.io/austin-stanton/creating-a-raspberry-pi-universal-remote-with-lirc-2fd581
 
 I used a Raspberry Pi to connect the IR LED / Receiver.
 
-## Install Software
+## Install the software
 
 ### LIRC
 
-LIRC is software that can be used to receive and send IR signals.
+LIRC is the software to send and receive IR signals.
 
-Install LIRC to send the IR signals:
+Install LIRC:
 
 	sudo apt-get update
 	sudo apt-get install lirc
@@ -32,7 +32,7 @@ Enable LIRC on the Pi by adding the following to the end of `/etc/modules`:
 	lirc_dev
 	lirc_rpi gpio_in_pin=23 gpio_out_pin=22
 
-Edit `/boot/config.txt` and add:
+Also, edit `/boot/config.txt` and add:
 
 	dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=22
 
