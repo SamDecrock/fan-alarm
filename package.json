@@ -1,0 +1,12 @@
+{
+  "name": "fan-alarm",
+  "version": "0.0.1",
+  "description": "Wake up with (fresh) air blown in your face. Uses LIRC to control a (tower) fan.",
+  "main": "app.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "lirc-client": "^2.0.0",
+    "node-cron": "^2.0.3"
+  }
+}
