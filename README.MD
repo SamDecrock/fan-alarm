@@ -36,34 +36,10 @@ Also, edit `/boot/config.txt` and add:
 
 	dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=22
 
-Create a file `/etc/lirc/hardware.conf` and add the following to it:
-
-	########################################################
-	# /etc/lirc/hardware.conf
-	#
-	# Arguments which will be used when launching lircd
-	LIRCD_ARGS="--uinput"
-	# Don't start lircmd even if there seems to be a good config file
-	# START_LIRCMD=false
-	# Don't start irexec, even if a good config file seems to exist.
-	# START_IREXEC=false
-	# Try to load appropriate kernel modules
-	LOAD_MODULES=true
-	# Run "lircd --driver=help" for a list of supported drivers.
-	DRIVER="default"
-	# usually /dev/lirc0 is the correct setting for systems using udev
-	DEVICE="/dev/lirc0"
-	MODULES="lirc_rpi"
-	# Default configuration files for your hardware if any
-	LIRCD_CONF=""
-	LIRCMD_CONF=""
-	########################################################
-
 Edit the LIRC options file `/etc/lirc/lirc_options.conf`, make sure **driver** and **device** are set like this:
 
 	driver          = default
 	device          = /dev/lirc0
-
 
 If you have another Fan and want to capture/record the IR signals, first stop the LIRC service:
 
@@ -77,7 +53,7 @@ or with (raw mode):
 
 	irrecord --disable-namespace --force
 
-Make sure copy the generate .conf file to `/etc/lirc/lircd.conf.d/`.
+Make sure to copy the generated .conf file to `/etc/lirc/lircd.conf.d/`.
 
 If you have a Quigg Tower Fan too, just copy the supplied quigg.lirc.conf:
 
@@ -97,7 +73,7 @@ Or more generic
 
 ### The Node.js app
 
-Store this app into a folder, I choose to create an `/apps` folder:
+Store this app into a folder, I chose to create an `/apps` folder:
 
 	sudo mkdir /apps
 	sudo chmod -R 777 /apps
@@ -116,7 +92,7 @@ Go into this folder and install its dependencies:
 	cd fan-alarm
 	npm install
 
-Modify app.js so that the fan starts at the time you want.
+Modify `app.js` so that the fan starts at the time you want.
 
 Make sure you have your timezone set on your Pi with:
 
@@ -124,7 +100,7 @@ Make sure you have your timezone set on your Pi with:
 	> Localization Options
 	> Change Timezone
 
-Test it by running
+Test the app by running
 
 	node app.js
 
@@ -134,7 +110,7 @@ You should see something like this:
 	Starting cron job. Will wake you up at 2:30 AM
 
 
-To run this node.js app in the background, creat a service:
+To run this in the background, creat a service:
 
 	sudo nano /etc/systemd/system/fan-alarm.service
 
@@ -156,7 +132,7 @@ With the following content:
 	[Install]
 	WantedBy=multi-user.target
 
-Enable and start the app:
+Enable and start the app as a background service:
 
 	sudo systemctl enable fan-alarm
 	sudo systemctl start fan-alarm
@@ -165,5 +141,7 @@ Read its output with:
 
 	sudo journalctl -u fan-alarm -n 50 -f
 
-That's it, now make sure the IR emitter is close enough to the Fan and have fun waking up at the right time ;-)
+That's it, now make sure the IR emitter is close enough to the Fan.
+
+Have fun waking up on time 😊
 
