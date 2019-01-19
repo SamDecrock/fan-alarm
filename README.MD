@@ -4,6 +4,7 @@ Wake up with (fresh) air blown in your face. Uses LIRC to control a (tower) fan.
 
 In this example, I'm using a Quigg Tower Fan. So if you happen to have the same one, you can use my config file, else you will have to record the IR codes yourself.
 
+The app is written in Node.js/JavaScript and uses LIRC to send IR commands.
 
 My setup:
 
@@ -72,6 +73,11 @@ Or more generic
 	irsend SEND_ONCE <name of remote> <name of command>
 
 ### The Node.js app
+
+Make sure node.js is installed:
+
+	curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+	sudo apt-get install -y nodejs
 
 Store this app into a folder, I chose to create an `/apps` folder:
 
