@@ -151,3 +151,7 @@ That's it, now make sure the IR emitter is close enough to the Fan.
 
 Have fun waking up on time 😊
 
+## Roadmap
+
+- Make times configurable using config file or web interface.
+
