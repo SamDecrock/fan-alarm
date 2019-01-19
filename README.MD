@@ -4,6 +4,12 @@ Wake up with (fresh) air blown in your face. Uses LIRC to control a (tower) fan.
 
 In this example, I'm using a Quigg Tower Fan. So if you happen to have the same one, you can use my config file, else you will have to record the IR codes yourself.
 
+
+My setup:
+
+![My setup](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup.jpg)
+
+
 ## Install Hardware
 
 Attach a powerfull IR LED (eg LIR053) to pin 22 of your Pi. You can also a attach an IR Receiver (TSOP38238) to pin 23 if you still need to capture/record the IR signals.
