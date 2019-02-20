@@ -6,9 +6,13 @@ In this example, I'm using a Quigg Tower Fan. So if you happen to have the same 
 
 The app is written in Node.js/JavaScript and uses LIRC to send IR commands.
 
-My setup:
+My view from the bed:
 
-[![My setup](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup-thumb.jpg)](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/setup.jpg)
+[![My setup](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/IMG_2507.JPG)](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/IMG_2507.JPG)
+
+View from the top:
+
+[![My setup](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/IMG_2510.JPG)](https://raw.githubusercontent.com/SamDecrock/fan-alarm/master/IMG_2510.JPG)
 
 ## Install the hardware
 
