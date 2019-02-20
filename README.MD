@@ -1,6 +1,6 @@
 # Fan alarm
 
-Wake up with (fresh) air blown in your face. A Raspberry Pi with infrared emitter is used to control the fan.
+**Wake up with (fresh) air blown in your face. A Raspberry Pi with infrared emitter is used to control the fan.**
 
 In this example, I'm using a Quigg Tower Fan. So if you happen to have the same one, you can use my config file, else you will have to record the IR codes yourself.
 
